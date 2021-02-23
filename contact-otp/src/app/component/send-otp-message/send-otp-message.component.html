@@ -1,10 +1,12 @@
-<p>send-otp-message works!</p>
-<div class="messagecontainer">
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="OTP" [value]="otp" #message />
-    </mat-form-field>
-    <br />
-    <button (click)="sendMessage(message)" routerLink="/" mat-raised-button color="primary">
-        Send
-    </button>
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+        <h5>Send OTP</h5>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Message</label>
+            <textarea type="text" class="form-control" rows="3" matInput placeholder="OTP" [value]="otp" #message readonly ></textarea>
+        </div>
+        <a (click)="sendMessage(message)" routerLink="/" class="btn btn-primary">Send</a>
+    </div>
 </div>

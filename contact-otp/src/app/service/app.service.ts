@@ -8,12 +8,11 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  // requestUrl = 'http://localhost:8080';
+
   contact: any;
 
-  // to fetch all contacts from server
+
   fetchContacts() {
-    // return this.http.get(`${this.requestUrl}/fetchAllContacts`);
     return this.http.get(`/fetchAllContacts`);
   }
 
@@ -25,11 +24,13 @@ export class AppService {
     return this.contact;
   }
 
-  // sending contact details with otp to backend
+
+
+
   sendMessage(values) {
     return this.http.put(`/sendMessage`, values);
   }
-  // getting messages list form backend
+
   getMessagesList() {
     return this.http.get(`/sentMessagesList`);
   }

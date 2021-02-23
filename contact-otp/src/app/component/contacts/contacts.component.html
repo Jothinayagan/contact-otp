@@ -1,7 +1,4 @@
-<p>contacts works!</p>
-
-<mat-nav-list>
-    <a mat-list-item (click)='sendContactDetails(contact)' *ngFor="let contact of contactList.contacts">
-        {{ contact.name }}
-    </a>
-</mat-nav-list>
+<div class="list-group">
+    <a class="list-group-item list-group-item-action" (click)='sendContactDetails(contact)'
+        *ngFor="let contact of contactList.contacts"> {{ contact.name }}</a>
+</div>

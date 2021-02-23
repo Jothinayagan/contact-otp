@@ -4,14 +4,13 @@ const moment = require('moment');
 const fs = require('fs');
 
 module.exports.sendMessage = (req, res) => {
-    // console.log('req.body.message ==> ', req.body);
-    // twilioClient.messages.create({
-    //     body: req.body.message,
-    //     from: '+18329003236',
-    //     to: req.body.phoneNumber
-    // }).then(message => {
-    //     console.log(message.sid);
-    // });
+    twilioClient.messages.create({
+        body: req.body.message,
+        from: '+18329003236',
+        to: req.body.phoneNumber
+    }).then(message => {
+        console.log(message.sid);
+    });
     logSentMessage(req.body);
 }
 

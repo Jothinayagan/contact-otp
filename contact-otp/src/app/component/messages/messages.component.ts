@@ -8,7 +8,7 @@ import { AppService } from '../../service/app.service';
 })
 export class MessagesComponent implements OnInit {
 
-  displayedColumns: string[] = ['name', 'message', 'time'];
+  displayedColumns: string[] = ['Name', 'Message', 'Time'];
   dataSource: any;
 
   constructor(private appService: AppService) { }

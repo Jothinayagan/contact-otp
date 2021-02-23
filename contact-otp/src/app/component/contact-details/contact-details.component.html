@@ -1,14 +1,12 @@
-<mat-card class="mat-elevation-z8">
-    <mat-card-header>
-        <mat-card-title>Contact Details</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>{{ contact.name }}</p>
-        <p>{{ contact.phoneNumber }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-        <button (click)="sendMessage()" mat-raised-button color="primary">
-            Send Message
-        </button>
-    </mat-card-actions>
-</mat-card>
+<div class="card" style="width: 25rem;">
+    <div class="card-header">
+        <h4>Contact Details</h4>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <h6 class="card-title">{{ contact.name }}</h6>
+            <h6 class="card-title">{{ contact.phoneNumber }}</h6>
+        </div>
+        <button (click)="sendMessage()" class="btn btn-primary">Send Message</button>
+    </div>
+</div>
