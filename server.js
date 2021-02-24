@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", routes);
 app.use(express.static(__dirname + "/contact-otp/dist/contact-otp"));
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/contact-otp/dist/contact-otp/index.html'));
 });
 
