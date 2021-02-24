@@ -1,7 +1,8 @@
-const twilioCredentials = require('../config.json');
-const twilioClient = require("twilio")(twilioCredentials.twilio_accountSid, twilioCredentials.twilio_authToken);
 const moment = require('moment');
 const fs = require('fs');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioClient = require("twilio")(accountSid, authToken);
 
 module.exports.sendMessage = (req, res) => {
     twilioClient.messages.create({
@@ -9,7 +10,7 @@ module.exports.sendMessage = (req, res) => {
         from: '+18329003236',
         to: req.body.phoneNumber
     }).then(message => {
-        console.log(message.sid);
+        console.log("Message sent successfully! ", message.sid);
     });
     logSentMessage(req.body);
 }
@@ -21,7 +22,6 @@ const logSentMessage = (body) => {
         message: body.message,
         time: time
     };
-    console.log("Data ==> ", data);
 
     if (!fs.existsSync('./sentMessages.json')) {
         let preSentMessage = `{
@@ -40,7 +40,6 @@ const logMessagetoJSON = (data) => {
         else {
             let parseJsonData = JSON.parse(body);
             parseJsonData.sentMessages.push(data);
-            console.log("parseJsonData ==> ", parseJsonData);
             fs.writeFileSync('./sentMessages.json', JSON.stringify(parseJsonData), 'utf8', (err, res) => {
                 if (err) console.log(err);
                 else console.log("Log successful", res);
