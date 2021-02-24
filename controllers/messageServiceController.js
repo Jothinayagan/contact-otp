@@ -16,7 +16,7 @@ module.exports.sendMessage = (req, res) => {
 }
 
 const logSentMessage = (body) => {
-    let time = moment().format('DD/MM/YYYY, hh:mm:ss a');
+    let time = moment().utcOffset("+05:30").format('DD/MM/YYYY, hh:mm:ss a');
     let data = {
         name: body.name,
         message: body.message,
